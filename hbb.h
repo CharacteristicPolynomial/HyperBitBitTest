@@ -21,7 +21,34 @@ class HBB {
         profile.clear();
         profile.resize(m, 0);
         lgn = 5;
-
+    }
+    int play_till(int tL, int tS0) {
+        int k=0;
+        while(1) {
+            play();
+            if(lgn == tL) {
+                if(lcnt == tS0) {
+                    break;
+                }
+            }
+            k++;
+        }
+        // cout << k << endl;
+        return k;
+    }
+    int play_infty_till(int tL, int tS0) {
+        int k=0;
+        while(1) {
+            play_infty();
+            if(lgn >= tL) {
+                if(lcnt >= tS0) {
+                    break;
+                }
+            }
+            k++;
+        }
+        // cout << k << endl;
+        return k;
     }
     void play() {
         int c = rand() % m;
